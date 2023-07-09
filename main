@@ -1,0 +1,15 @@
+/*   Insert Files to Custom Gallery Programmatically
+Let’s assume that you have a gallery added as a custom meta field called “gallery”. You upload plenty of images through the media_sideload_image(). Then, serialize their IDs and insert them to the gallery by update_post_meta( $post_id , ‘gallery’, $serialized);
+
+Consequently, when you look at the post in the backend Edit post page, you’ll see all the uploaded photos. However, these pictures won’t show in a slideshow in the frontend until you hit Update in the backend.
+
+So, how can you programmatically click the Update button after you’ve created the gallery? Simply follow the guide below:
+
+Once you update the post gallery, add this code to programmatically select the Update button: */
+
+
+/*Once you update the post gallery, add this code to programmatically select the Update button: */
+wp_update_post(['ID'=>$post_id]);
+/*2. Update the cache to use the search and filter functions:*/
+
+do_action('search_filter_update_post_cache', $post_id);
